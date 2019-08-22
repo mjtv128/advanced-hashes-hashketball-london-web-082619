@@ -155,7 +155,10 @@ def team_colors(teamname)
   }
 end 
 
-
+def team_names
+  game_hash.map{|team, details|
+  details[:team_name]}
+end 
   
 def player_numbers(teamname)
   jersey_array = []

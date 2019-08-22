@@ -171,4 +171,32 @@ def player_numbers(teamname)
   return jersey_array
 end 
 
+def player_stats(player_name)
+  new_array= {}
+  game_hash.each{|team, details|
+  details[:players].each{|player|
+  if player[:name] == player_name
+    player.delete(:name)
+    new_array = player
+  end 
+  }
+  }
+  return new_array 
+end 
+
+def big_shoe_rebounds
+  shoesize = 0
+  rebound = 0
+  game_hash.each{|team, details|
+  details[:players].each{|player|
+  
+  if player[:shoe] > shoesize 
+    shoesize = player[:shoe] 
+    rebound = player[:rebounds]
+  end 
+  }
+  }
+  return rebound
+  
+end 
   

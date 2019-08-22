@@ -213,4 +213,14 @@ def most_points_scored
   }
   return highestplayer
 end 
+
+  def player_with_longest_name 
+    longest_name = []
+    game_hash.each{|team, details|
+    details[:players].each{|player|
+    longest_name << player[:name]
+    }
+    }
+    return longest_name.max_by{|name| name.length}
+  end 
   
